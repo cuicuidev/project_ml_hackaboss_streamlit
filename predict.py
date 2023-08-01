@@ -10,9 +10,9 @@ with open('model.pkl', 'br') as file:
 with open('encodings.pkl', 'br') as file:
     encodings = pkl.load(file)
 
-columns = ['manufacturer', 'fuel', 'type', 'year', 'odometer', 'long', 'car_age']
+COLUMNS = ['manufacturer', 'fuel', 'type', 'year', 'odometer', 'long', 'car_age']
 
-brands = {
+BRANDS = {
     'gmc': 'Mainstream',
     'chevrolet': 'Mainstream',
     'toyota': 'Mainstream',
@@ -102,7 +102,7 @@ def generateCols(array):
     new_array = array.copy()
     manufacturer = array[1]
     year = array[-4]
-    new_array.insert(7, brands.get(manufacturer))
+    new_array.insert(7, BRANDS.get(manufacturer))
     
     new_array.append(2021-year)
     
